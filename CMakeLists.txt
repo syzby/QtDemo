@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.0)
+
+project(QtDemo
+    VERSION 0.0.1.0
+    LANGUAGES CXX
+)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+if (MSVC)
+# 下面2行用于生成pdb调试文件
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi")
+set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
+add_compile_options("/MP")
+endif()
+
+SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin) 
+
+add_subdirectory(widgets)
+
+# 安装
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/output)

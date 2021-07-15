@@ -1,0 +1,2 @@
+add_subdirectory(spinboxdelegate)
+add_subdirectory(dirview)

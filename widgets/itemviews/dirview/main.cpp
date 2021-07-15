@@ -3,13 +3,14 @@
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QFileSystemModel>
+#include <QtCore/QDir>
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
     QFileSystemModel model;
-    model.setRootPath("C:\\");
+    model.setRootPath(QDir::currentPath());
 
     QTreeView tree;
     tree.setModel(&model);
